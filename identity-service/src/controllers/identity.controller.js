@@ -21,6 +21,12 @@ export const registerUser = async (req, res) => {
         .json({ success: false, message: "User already exists" });
     }
     user = new User({ username, email, pasword });
+    await user.save();
+    logger.info("User saved successfully", user._id);
+
+    //   const =
     return res.json({ success: true, message: "User registered successfully" });
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 };
