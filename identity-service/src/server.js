@@ -4,6 +4,7 @@ import helmet from "helmet";
 import cors from "cors";
 import RateLimiterRedis from "rate-limiter-flexible";
 import Redis from "ioredis";
+import { rateLimit } from "express-rate-limit";
 
 import logger from "./utils/logger.js";
 
@@ -43,4 +44,15 @@ app.use((req, res, next) => {
       logger.error(`Requests limits exceeded for IP: ${req.ip}`);
       res.status(429).json({ success: false, message: "Too many requests" });
     });
+});
+
+const sensitiveEndpointsLimiter = rateLimit({
+  windowMs: 15 * 60 * 100,
+  max: 50,
+  standardHeaders: true,
+  legacyHeaders: false,
+  handler: (req, res) => {
+    logger.warn(`Sensitive endpoint rate limit exceeded for IP ${req.ip}`);
+    res.status(429).json({ success: false, message: "Too many requests" });
+  },
 });

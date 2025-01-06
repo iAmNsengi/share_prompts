@@ -1,5 +1,6 @@
 import jwt from "jsonwebtoken";
 import crypto from "crypto";
+
 import RefreshToken from "../models/RefreshToken";
 
 const generateTokens = async (user) => {
