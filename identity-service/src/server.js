@@ -76,3 +76,7 @@ app.use(errorHandler);
 app.listen(PORT, () => {
   logger.info(`Identity service running on PORT ${PORT}`);
 });
+
+process.on("unhandledRejection", (reason, promise) => {
+  logger.error(`Unhandled rejection at `, promise, "reason: ", reason);
+});
