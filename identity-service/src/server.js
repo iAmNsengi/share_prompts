@@ -5,11 +5,16 @@ import cors from "cors";
 import RateLimiterRedis from "rate-limiter-flexible";
 import Redis from "ioredis";
 import { rateLimit } from "express-rate-limit";
+import { RedisStore } from "rate-limit-redis";
 
 import logger from "./utils/logger.js";
+import routes from "./routes/identity.service.js";
+import errorHandler from "./middlewares/errorHandler.js";
+
+dotenv.config();
 
 const app = express();
-dotenv.config();
+const PORT = process.env.PORT;
 
 mongoose
   .connect(process.env.MONGODB_URI)
@@ -55,4 +60,19 @@ const sensitiveEndpointsLimiter = rateLimit({
     logger.warn(`Sensitive endpoint rate limit exceeded for IP ${req.ip}`);
     res.status(429).json({ success: false, message: "Too many requests" });
   },
+  store: new RedisStore({
+    sendCommand: (...args) => redisClient.call(...args),
+  }),
+});
+
+// apply sensitive rate limiter to our routes
+app.use("/api/v1/auth/register", sensitiveEndpointsLimiter);
+
+// routes
+app.use("/api/v1/auth", routes);
+//error handler
+app.use(errorHandler);
+
+app.listen(PORT, () => {
+  logger.info(`Identity service running on PORT ${PORT}`);
 });
