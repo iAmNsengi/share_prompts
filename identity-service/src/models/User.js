@@ -25,7 +25,7 @@ const userSchema = new mongoose.Schema(
       default: Date.now,
     },
   },
-  { timestamps }
+  { timestamps: true }
 );
 
 userSchema.pre("save", async function (next) {
@@ -48,5 +48,5 @@ userSchema.methods.comparePassword = async function (candidatePassword) {
 
 userSchema.index({ username: "text" });
 
-const User =  mongoose.model("User", userSchema);
+const User = mongoose.model("User", userSchema);
 export default User;

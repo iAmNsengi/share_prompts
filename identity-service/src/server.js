@@ -1,9 +1,10 @@
+import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import helmet from "helmet";
 import cors from "cors";
-import RateLimiterRedis from "rate-limiter-flexible";
 import Redis from "ioredis";
+import { RateLimiterRedis } from "rate-limiter-flexible";
 import { rateLimit } from "express-rate-limit";
 import { RedisStore } from "rate-limit-redis";
 
