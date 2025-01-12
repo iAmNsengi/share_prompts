@@ -21,7 +21,7 @@ export const registerUser = async (req, res) => {
         .status(400)
         .json({ success: false, message: "User already exists" });
     }
-    user = new User({ username, email, pasword });
+    user = new User({ username, email, password });
 
     await user.save();
     logger.info("User saved successfully", user._id);
