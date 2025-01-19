@@ -35,3 +35,11 @@
 {"level":"info","message":"Request body [object Object] ","service":"identity-service","timestamp":"2025-03-06T09:45:17.473Z"}
 {"level":"info","message":"Registration endpoint hit....","service":"identity-service","timestamp":"2025-03-06T09:45:17.475Z"}
 {"level":"error","message":"Registration error occurred pasword is not defined","service":"identity-service","stack":"ReferenceError: pasword is not defined\n    at registerUser (file:///C:/Users/nseng/Desktop/social-media-microservice/identity-service/src/controllers/identity.controller.js:24:40)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2025-03-06T09:45:17.590Z"}
+{"level":"info","message":"Identity service running on PORT 3001","service":"identity-service","timestamp":"2025-03-06T09:45:44.579Z"}
+{"level":"info","message":"Received POST request to /api/v1/auth/register","service":"identity-service","timestamp":"2025-03-06T09:45:47.759Z"}
+{"level":"info","message":"Request body [object Object] ","service":"identity-service","timestamp":"2025-03-06T09:45:47.761Z"}
+{"level":"info","message":"Registration endpoint hit....","service":"identity-service","timestamp":"2025-03-06T09:45:47.768Z"}
+{"level":"info","message":"Connected to mongodb","service":"identity-service","timestamp":"2025-03-06T09:45:49.620Z"}
+{"buffer":{"data":[103,201,110,209,157,202,134,165,179,40,46,42],"type":"Buffer"},"level":"info","message":"User saved successfully","service":"identity-service","timestamp":"2025-03-06T09:45:54.549Z"}
+{"level":"info","message":"Identity service running on PORT 3001","service":"identity-service","timestamp":"2025-03-06T11:14:41.538Z"}
+{"level":"info","message":"Connected to mongodb","service":"identity-service","timestamp":"2025-03-06T11:14:48.999Z"}

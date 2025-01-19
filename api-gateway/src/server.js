@@ -5,6 +5,7 @@ import Redis from "ioredis";
 import helmet from "helmet";
 import { rateLimit } from "express-rate-limit";
 import { RedisStore } from "rate-limit-redis";
+import proxy from "express-http-proxy";
 
 import logger from "./utils/logger";
 
@@ -40,3 +41,15 @@ app.use((req, res, next) => {
   logger.info(`Request body ${req.body} `);
   next();
 });
+
+const proxyOptions = {
+  proxyReqPathResolver: (req) => {
+    return req.originalUrl.replace(/^\/v1/, "/api");
+  },
+  proxyErrorHandler: (err, req, next) => {
+    logger.error(`Proxy error: ${err.message}`);
+    res
+      .status(500)
+      .json({ message: `Internal server error`, error: err.message });
+  },
+};
