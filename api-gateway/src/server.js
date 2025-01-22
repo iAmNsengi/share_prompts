@@ -8,6 +8,7 @@ import { RedisStore } from "rate-limit-redis";
 import proxy from "express-http-proxy";
 
 import logger from "./utils/logger";
+import errorHandler from "../../identity-service/src/middlewares/errorHandler";
 
 dotenv.config();
 const app = express();
@@ -53,3 +54,31 @@ const proxyOptions = {
       .json({ message: `Internal server error`, error: err.message });
   },
 };
+
+// setting up proxy for the identity service
+app.use(
+  "/v1/auth",
+  proxy(process.env.IDENTITY_SERVICE_URL, {
+    ...proxy,
+    proxyReqOptDecorator: (proxyReqOpts, srcReq) => {
+      proxyReqOpts.headers["Content-Type"] = "application/json";
+      return proxyReqOpts;
+    },
+    userResDecorator: (proxyRes, proxyResData, userReq, userRes) => {
+      logger.info(
+        `Response received from Identity service: ${proxyRes.statusCode}`
+      );
+      return proxyResData;
+    },
+  })
+);
+
+app.use(errorHandler);
+
+app.listen(PORT, () => {
+  logger.info(`API Gateway is running on PORT ${PORT}`);
+  logger.info(
+    `Identity service is runnig on PORT ${process.env.IDENTITY_SERVICE_URL}`
+  );
+  logger.info(`Redis Url ${process.env.REDIS_URL}`);
+});
