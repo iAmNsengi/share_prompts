@@ -43,3 +43,27 @@
 {"buffer":{"data":[103,201,110,209,157,202,134,165,179,40,46,42],"type":"Buffer"},"level":"info","message":"User saved successfully","service":"identity-service","timestamp":"2025-03-06T09:45:54.549Z"}
 {"level":"info","message":"Identity service running on PORT 3001","service":"identity-service","timestamp":"2025-03-06T11:14:41.538Z"}
 {"level":"info","message":"Connected to mongodb","service":"identity-service","timestamp":"2025-03-06T11:14:48.999Z"}
+{"level":"info","message":"Identity service running on PORT 3001","service":"identity-service","timestamp":"2025-03-08T12:39:16.211Z"}
+{"level":"info","message":"Connected to mongodb","service":"identity-service","timestamp":"2025-03-08T12:39:17.460Z"}
+{"level":"info","message":"Received GET request to /register","service":"identity-service","timestamp":"2025-03-08T12:40:38.592Z"}
+{"level":"info","message":"Request body [object Object] ","service":"identity-service","timestamp":"2025-03-08T12:40:38.592Z"}
+{"level":"info","message":"Received POST request to /register","service":"identity-service","timestamp":"2025-03-08T12:40:46.501Z"}
+{"level":"info","message":"Request body [object Object] ","service":"identity-service","timestamp":"2025-03-08T12:40:46.502Z"}
+{"level":"info","message":"Received POST request to /register","service":"identity-service","timestamp":"2025-03-08T12:42:24.297Z"}
+{"level":"info","message":"Request body [object Object] ","service":"identity-service","timestamp":"2025-03-08T12:42:24.298Z"}
+{"level":"info","message":"Received POST request to /api/auth/register","service":"identity-service","timestamp":"2025-03-08T12:45:54.565Z"}
+{"level":"info","message":"Request body [object Object] ","service":"identity-service","timestamp":"2025-03-08T12:45:54.566Z"}
+{"level":"info","message":"Registration endpoint hit....","service":"identity-service","timestamp":"2025-03-08T12:45:54.571Z"}
+{"0":"\"","1":"i","10":"t","11":" ","12":"a","13":"l","14":"l","15":"o","16":"w","17":"e","18":"d","2":"d","3":"\"","4":" ","5":"i","6":"s","7":" ","8":"n","9":"o","level":"warn","message":"Validation error","service":"identity-service","timestamp":"2025-03-08T12:45:54.579Z"}
+{"level":"info","message":"Received POST request to /api/auth/register","service":"identity-service","timestamp":"2025-03-08T12:46:28.519Z"}
+{"level":"info","message":"Request body [object Object] ","service":"identity-service","timestamp":"2025-03-08T12:46:28.520Z"}
+{"level":"info","message":"Registration endpoint hit....","service":"identity-service","timestamp":"2025-03-08T12:46:28.523Z"}
+{"0":"\"","1":"p","10":"e","11":"r","12":"\"","13":" ","14":"i","15":"s","16":" ","17":"n","18":"o","19":"t","2":"h","20":" ","21":"a","22":"l","23":"l","24":"o","25":"w","26":"e","27":"d","3":"o","4":"n","5":"e","6":"N","7":"u","8":"m","9":"b","level":"warn","message":"Validation error","service":"identity-service","timestamp":"2025-03-08T12:46:28.526Z"}
+{"level":"info","message":"Received POST request to /api/auth/register","service":"identity-service","timestamp":"2025-03-08T12:46:37.856Z"}
+{"level":"info","message":"Request body [object Object] ","service":"identity-service","timestamp":"2025-03-08T12:46:37.857Z"}
+{"level":"info","message":"Registration endpoint hit....","service":"identity-service","timestamp":"2025-03-08T12:46:37.858Z"}
+{"0":"\"","1":"p","10":" ","11":"i","12":"s","13":" ","14":"r","15":"e","16":"q","17":"u","18":"i","19":"r","2":"a","20":"e","21":"d","3":"s","4":"s","5":"w","6":"o","7":"r","8":"d","9":"\"","level":"warn","message":"Validation error","service":"identity-service","timestamp":"2025-03-08T12:46:37.860Z"}
+{"level":"info","message":"Received POST request to /api/auth/register","service":"identity-service","timestamp":"2025-03-08T12:46:55.477Z"}
+{"level":"info","message":"Request body [object Object] ","service":"identity-service","timestamp":"2025-03-08T12:46:55.478Z"}
+{"level":"info","message":"Registration endpoint hit....","service":"identity-service","timestamp":"2025-03-08T12:46:55.480Z"}
+{"buffer":{"data":[103,204,60,63,136,22,154,63,39,187,11,117],"type":"Buffer"},"level":"info","message":"User saved successfully","service":"identity-service","timestamp":"2025-03-08T12:46:55.918Z"}
