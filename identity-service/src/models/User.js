@@ -28,5 +28,25 @@ const userSchema = new mongoose.Schema(
   { timestamps }
 );
 
-const User = new mongoose.model("User", userSchema);
+userSchema.pre("save", async function (next) {
+  if (this.isModified("password")) {
+    try {
+      this.password = await argon2.hash(this.password);
+    } catch (error) {
+      return next(error);
+    }
+  }
+});
+
+userSchema.methods.comparePassword = async function (candidatePassword) {
+  try {
+    return argon2.verify(this.password, candidatePassword);
+  } catch (error) {
+    throw error;
+  }
+};
+
+userSchema.index({ username: "text" });
+
+const User =  mongoose.model("User", userSchema);
 export default User;
